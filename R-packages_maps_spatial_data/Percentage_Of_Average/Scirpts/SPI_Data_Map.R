@@ -17,11 +17,9 @@ rm(list=ls())
 setwd("~/Desktop/SIGP_training/R-packages_maps_spatial_data/Percentage_Of_Average/")
 
 options(download.file.extra = '--no-check-certificate')
-#dir.create("Results",recursive = T,showWarnings = F)
 
 Africa<-readOGR("SHP_AFRIQUE/Afrique_frontier_news.shp") 
 
-#Parameters<-import("Parameter/Parameters.csv")
 
 Month="Mar"
 Month_name="March"
