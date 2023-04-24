@@ -105,7 +105,7 @@ Title = paste("MONTHLY PRECIPITATION IN PERCENT OF AVERAGE FOR ",toupper(Month_n
 l<-ggplot()+geom_contour_filled(data=Percentage, aes(x,y,z = RR),breaks= mybreaks, show.legend = TRUE) +
   scale_fill_manual(palette=mycolors, values=breaklabel(5), name="", drop=FALSE, guide = guide_legend(reverse = TRUE))+theme_bw()
 
-last<-l+geom_polygon(data = Africa, aes(x = long,y = lat, group = group), fill = NA,color = "black",size = 1.1)+ theme(legend.position = c(.1, .1),legend.justification = c("left", "bottom"),legend.box.just = "right",legend.margin = margin(6, 6, 6, 6),legend.text = element_text(size=20,face = "bold"),plot.title = element_text(hjust = 0.5,size=20,face = "bold"),axis.text.x = element_text(size=15,face = "bold"),axis.text.y = element_text(size=15,face = "bold"))
+last<-l+geom_polygon(data = Africa, aes(x = long,y = lat, group = group), fill = NA,color = "black",size = 1.1)+ theme(legend.position = c(.01, .05),legend.justification = c("left", "bottom"),legend.box.just = "right",legend.margin = margin(6, 6, 6, 6),legend.text = element_text(size=15,face = "bold"),plot.title = element_text(hjust = 0.5,size=13,face = "bold"),axis.text.x = element_text(size=15,face = "bold"),axis.text.y = element_text(size=15,face = "bold"))
 #last<-last+  annotation_custom(Im, xmin = 50, xmax = 60, ymin =30, ymax = 40) +coord_cartesian(clip = "off")
 last<-last+ metR::scale_x_longitude(limits = c(-25, 60),breaks = seq(-25, 60,10)) + metR:: scale_y_latitude(limits = c(-40, 40),breaks = seq(-40, 40,10))
 last<-last+labs(title = Title,x="",y="")
@@ -114,10 +114,10 @@ last<-last+labs(title = Title,x="",y="")
 dir.create(paste("Products/Maps/",Year,"/",Month_name,sep=""),recursive = T,showWarnings = F)
 
 jpeg(filename = paste("Products/Maps/",Year,"/",Month_name,"/Percentage_",Month,"_",Year,".jpeg",sep=""),
-     width = 5,
-     height = 4,
+     width = 8,
+     height = 10,
      units = "in",
-     res=300)
+     res=50)
 print(last)
 dev.off()
 
